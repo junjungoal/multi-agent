@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
-  post '/linebot/callback' => 'webhook#callback'
+  post '/callback' => 'webhook#callback'
 end
 
