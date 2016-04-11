@@ -11,7 +11,7 @@ module LineClient
       _req['X-Line-ChannelID'] = ENV["LINE_CHANNEL_ID"]
       _req['X-Line-ChannelSecret'] = ENV["LINE_CHANNEL_SECRET"]
       _req['X-Line-Trusted-User-With-ACL'] = ENV["LINE_CHANNEL_MID"]
-      _req.body = attributes
+      _req.body = attributes.to_json
       start(_req, @uri)
     end
 
