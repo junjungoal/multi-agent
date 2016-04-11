@@ -18,7 +18,7 @@ module LineClient
     private
 
     def start(req, uri)
-      Net::HTTP::Proxy(ENV["LINE_OUTBOUND_PROXY"], 80).start(uri){ |http|
+      Net::HTTP.new(uri.host, uri.port, ENV["LINE_OUTBOUND_PROXY"], 80).start{ |http|
         http.use_ssl = true
         http.request(req)
       }
