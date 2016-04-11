@@ -16,5 +16,6 @@ module MultiAgent
       g.test_framework :rspec, view_specs: false, helper_specs: false, fixture: false
     end
     config.active_record.raise_in_transactional_callbacks = true
+    config.eager_load_paths += %W(#{config.root}/lib)
   end
 end
