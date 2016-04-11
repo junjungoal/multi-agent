@@ -18,8 +18,8 @@ class WebhookController < ApplicationController
         toType: LineToType::USER,
         text: "JunJunGoal"
       },
-      toChannel: ENV["TO_CHANNEL"],
-      eventType: ENV["EVENT_TYPE"]
+      toChannel: 1383378250,
+      eventType: "138311608800106203"
     }
   end
 
