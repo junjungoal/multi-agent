@@ -7,7 +7,7 @@ class ApiUri
   end
 
   private
-  def message_path(action)
+  def self.message_path(action)
     case action
     when :create
       '/v1/events'
