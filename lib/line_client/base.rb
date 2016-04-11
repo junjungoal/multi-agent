@@ -10,7 +10,9 @@ module LineClient
     end
 
     def self.uri(action)
-      URI.parse (Settings.api.uri + "/vi/events")
+      uri = URI.parse (Settings.api.uri + "/vi/events")
+      logger.info(uri)
+      uri 
     end
 
     def self.fetch_class
