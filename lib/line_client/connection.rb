@@ -5,7 +5,7 @@ module LineClient
     end
 
     def post(attributes={})
-      _req = Net::HTTP::Post.new("https://trialbot-api.line.me") 
+      _req = Net::HTTP::Post.new(@uri.request_uri) 
       _req.set_content_type("application/json; charset=UTF-8")
       _req['Content-type'] = 'application/json; charset=UTF-8'
       _req['X-Line-ChannelID'] = ENV["LINE_CHANNEL_ID"]
