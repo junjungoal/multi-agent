@@ -9,7 +9,7 @@ class WebhookController < ApplicationController
     else
       logger.info({fail: res})
     end
-    render :nothing => true, status: :ok
+    render :nothing => true
   end
 
   private
