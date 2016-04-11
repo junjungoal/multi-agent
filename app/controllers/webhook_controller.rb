@@ -3,7 +3,7 @@ class WebhookController < ApplicationController
   
   def callback
     logger.info({from_line: @result})
-    res = LineClient::Message(event_params)
+    res = LineClient::Message.create(event_params)
     if res.status == 200
       logger.info({success: res})
     else
