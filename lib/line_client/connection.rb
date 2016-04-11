@@ -19,10 +19,9 @@ module LineClient
 
     def start(req, uri)
       _, username, password, host, port = ENV["FIXIE_URL"].gsub(/(:|\/|@)/,' ').squeeze(' ').split
-      Net::HTTP.new(uri.host, uri.port, host, port, username, password).start{ |http|
-        http.use_ssl = true
-        http.request(req)
-      }
+      http =  Net::HTTP.new(uri.host, uri.port, host, port, username, password)
+      http.use_ssl = true
+      http.request(req)
     end
   end
 end
