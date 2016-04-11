@@ -18,12 +18,12 @@ class WebhookController < ApplicationController
     {
       to: [ @result["content"]["from"] ],
       content: {
-        contentType: ContentType::TEXT,
-        toType: ToType::USER,
+        contentType: LineContent::TEXT,
+        toType: LineToType::USER,
         text: "JunJunGoal"
       },
-      toChannel: TO_CHANNEL,
-      eventType: EVENT_TYPE
+      toChannel: ENV["TO_CHANNEL"],
+      eventType: ENV["EVENT_TYPE"]
     }
   end
 
