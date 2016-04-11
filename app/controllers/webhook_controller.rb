@@ -4,11 +4,7 @@ class WebhookController < ApplicationController
   def callback
     logger.info({from_line: @result})
     res = LineClient::Message.create(event_params)
-    if res.status == 200
-      logger.info({success: res})
-    else
-      logger.info({fail: res})
-    end
+    logger.info({success: res})
     render :nothing => true
   end
 
