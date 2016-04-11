@@ -18,8 +18,7 @@ module LineClient
     private
 
     def start(req, uri)
-      _proxy_class = Net::HTTP::Proxy(ENV["LINE_OUTBOUND_PROXY"], 80)
-      _proxy_class.new(@uri).start { |http|
+      Net::HTTP::Proxy(ENV["LINE_OUTBOUND_PROXY"], 80).start(uri){ |http|
         http.request(req)
       }
     end
