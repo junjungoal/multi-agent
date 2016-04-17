@@ -18,7 +18,7 @@ class WebhookController < ApplicationController
       content: {
         contentType: LineContent::TEXT,
         toType: LineToType::USER,
-        messages:  "JunJunGoal"
+        messages: @yelp_messages
       },
       toChannel: Settings.line.event.to_channel,
       eventType: Settings.line.event.type
