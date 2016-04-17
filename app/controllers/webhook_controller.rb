@@ -4,7 +4,7 @@ class WebhookController < ApplicationController
   def callback
     logger.info({from_line: @result})    
     res = Yelp.client.search(@messages[1], yelp_params)
-    logger.info(res)
+    logger.info(JSON.parse(res))
     LineClient::Message.create(event_params)
     render :nothing => true
   end
@@ -31,7 +31,9 @@ class WebhookController < ApplicationController
 
   def yelp_params
     { term: @messages[0],
-      limit: 2
+      limit: 2, 
+      cc: "JP",
+      lang: "ja"
     } 
   end
 end
