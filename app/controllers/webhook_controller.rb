@@ -2,7 +2,9 @@ class WebhookController < ApplicationController
   before_action :fetch_result
   
   def callback
-    logger.info({from_line: @result})
+    logger.info({from_line: @result})    
+    res = Yelp.client.search(@messages[1]. yelp_parameter)
+    logger.info(res)
     LineClient::Message.create(event_params)
     render :nothing => true
   end
@@ -24,5 +26,12 @@ class WebhookController < ApplicationController
 
   def fetch_result
      @result = params[:result].first
+     @messages = @result.split("\n")
+  end
+
+  def yelp_params
+    { term: @messages[0],
+      limit: 2
+    } 
   end
 end
