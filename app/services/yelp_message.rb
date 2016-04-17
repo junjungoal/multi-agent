@@ -1,9 +1,9 @@
 class YelpMessage
   def self.build(res)
-    res.businesses.map do |content|
+    res.businesses.map.with_index do |content, i|
      {  
       contentType: LineContent::TEXT,
-      text: "#{content.name} \n\nAddress: #{build_address(content.location.display_address)} \n\nRate: #{content.rating}" 
+      text: "#{i + 1}. \n#{content.name} \n\nAddress: #{build_address(content.location.display_address)} \n\nRate: #{content.rating}" 
      }
     end
   end
@@ -12,5 +12,6 @@ class YelpMessage
     display_address.pop
     display_address.reverse.join
   end
+
 end
 
