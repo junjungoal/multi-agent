@@ -16,8 +16,7 @@ class WebhookController < ApplicationController
     {
       to: [ @result["content"]["from"] ],
       content: {
-        contentType: LineContent::TEXT,
-        toType: LineToType::USER,
+        messageNotified: 0,
         messages: @yelp_messages
       },
       toChannel: Settings.line.event.to_channel,
