@@ -32,8 +32,7 @@ class WebhookController < ApplicationController
   def yelp_params
     { term: @messages[0],
       limit: 3, 
-      sort: 0,
-      radius_filter: @messages[3]
+      sort: 0
     } 
   end
 
