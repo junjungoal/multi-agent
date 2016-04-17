@@ -26,7 +26,7 @@ class WebhookController < ApplicationController
 
   def fetch_result
      @result = params[:result].first
-     @messages = @result.split("\n")
+     @messages = params[:text].split("\n")
   end
 
   def yelp_params
