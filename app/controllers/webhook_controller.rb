@@ -4,6 +4,7 @@ class WebhookController < ApplicationController
   def callback
     logger.info({from_line: @result})    
     res = Yelp.client.search(@messages[1], yelp_params)
+    @yelp_messages = YelpMessage.build(res)
     logger.info(res.businesses)
     LineClient::Message.create(event_params)
     render :nothing => true
@@ -17,7 +18,7 @@ class WebhookController < ApplicationController
       content: {
         contentType: LineContent::TEXT,
         toType: LineToType::USER,
-        text: "JunJunGoal"
+        messages:  "JunJunGoal"
       },
       toChannel: Settings.line.event.to_channel,
       eventType: Settings.line.event.type
