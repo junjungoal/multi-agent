@@ -33,7 +33,7 @@ class WebhookController < ApplicationController
     { term: @messages[0],
       limit: 3, 
       sort: 0,
-      radius_filter: 1000
+      radius_filter: messages[3]
     } 
   end
 
