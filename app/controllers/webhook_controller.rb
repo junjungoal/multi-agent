@@ -17,8 +17,8 @@ class WebhookController < ApplicationController
         toType: LineToType::USER,
         text: "JunJunGoal"
       },
-      toChannel: Settings.line.to_channel,
-      eventType: Settings.line.event_type
+      toChannel: Settings.line.event.to_channel,
+      eventType: Settings.line.event.type
     }
   end
 
