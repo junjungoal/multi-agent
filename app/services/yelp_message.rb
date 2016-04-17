@@ -3,7 +3,7 @@ class YelpMessage
     res.businesses.map.with_index do |content, i|
      {  
       contentType: LineContent::TEXT,
-      text: "#{i + 1}. \n#{content.name} \n\nAddress: #{build_address(content.location.display_address)} \n\nRate: #{content.rating}" 
+      text: "#{i + 1}. #{content.name} \n\nAddress: #{build_address(content.location.display_address)} \n\nRate: #{content.rating}" 
      }
     end
   end
