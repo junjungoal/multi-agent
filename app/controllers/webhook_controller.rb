@@ -2,7 +2,9 @@ class WebhookController < ApplicationController
   before_action :fetch_result
   
   def callback
-    LineClient::Message.create(event_params)
+    logger.info({from_line: @result})
+    res = LineClient::Message.create(event_params)
+    logger.info({status: res.status})
     render :nothing => true
   end
 
