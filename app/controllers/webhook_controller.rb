@@ -34,7 +34,8 @@ class WebhookController < ApplicationController
       limit: 5, 
       sort: 0,
       cc: "JP",
-      lang: "ja"
+      lang: "ja",
+      deals_filter: true
     } 
   end
 end
