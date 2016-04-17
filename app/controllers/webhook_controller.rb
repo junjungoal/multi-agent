@@ -3,7 +3,7 @@ class WebhookController < ApplicationController
   
   def callback
     logger.info({from_line: @result})    
-    res = Yelp.client.search(@messages[1], yelp_params)
+    res = Yelp.client.search(@messages[1], yelp_params, yelp_locale_params)
     @yelp_messages = YelpMessage.build(res)
     logger.info(res.businesses)
     LineClient::Message.create(event_params)
@@ -31,12 +31,13 @@ class WebhookController < ApplicationController
 
   def yelp_params
     { term: @messages[0],
-      location: @messages[1],
       limit: 3, 
-      cc: "JP",
-      lang: "ja",
       sort: 2,
       radius_filter: 1000
     } 
+  end
+
+  def yelp_locale_params
+    {lang: "jp"}
   end
 end
