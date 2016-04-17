@@ -10,7 +10,7 @@ class YelpMessage
 
   def self.output_times(content)
     if content.deals.time_start && content.deals.time_end
-      "#{content.deals.time_start} ~ #{content.deals.time_end}"
+      "#{content.deals["time_start"]} ~ #{content.deals["time_end"]}"
     else 
       "なし"
     end
