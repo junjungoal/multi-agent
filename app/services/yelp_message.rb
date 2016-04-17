@@ -3,12 +3,13 @@ class YelpMessage
     res.businesses.map do |content|
      {  
       contentType: LineContent::TEXT,
-      text: "#{content.name} \n\n レート: #{content.rating} \n\n 住所: #{build_address(content.location.display_address)}" 
+      text: "#{content.name} \n\nレート: #{content.rating} \n\n住所: #{build_address(content.location.display_address)}" 
      }
     end
   end
 
   def self.build_address(display_address)
+    display_address.pop
     display_address.reverse.join
   end
 end
