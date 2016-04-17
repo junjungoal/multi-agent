@@ -31,7 +31,7 @@ class WebhookController < ApplicationController
 
   def yelp_params
     { term: @messages[0],
-      limit: 3, 
+      limit: 5, 
       sort: 0,
       cc: "JP",
       lang: "ja"
